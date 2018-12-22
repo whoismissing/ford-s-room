@@ -24,7 +24,7 @@ else
 fi
 
 echo -e "\n[+] Installing libapache2-mod-security2 package\n"
-apt-get install libapache2-mod-security2 || echo "Installation failed" && exit
+apt-get install libapache2-mod-security2
 
 echo -e "\n[+] Configuring /etc/modsecurity/modsecurity.conf\n"
 # Echo Important Configurations:
