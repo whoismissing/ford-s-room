@@ -60,6 +60,14 @@ install_spotify() {
     snap install spotify
 }
 
+install_sublime() {
+    wget -qO - https://download.sublimetext.com/sublimehq-pub.gpg | sudo apt-key add -
+    sudo apt-get install apt-transport-https
+    echo "deb https://download.sublimetext.com/ apt/stable/" | sudo tee /etc/apt/sources.list.d/sublime-text.list
+    sudo apt-get update && sudo apt-get install sublime-text
+
+}
+
 
 download_desktop_debs() {
     # vscode deb
@@ -67,6 +75,9 @@ download_desktop_debs() {
 
     # discord deb
     wget https://discordapp.com/api/download?platform=linux&format=deb
+
+    # cherrytree deb
+    wget http://www.giuspen.com/software/cherrytree_0.38.7-0_all.deb
 }
 
 download_r2_cutter() {
@@ -106,19 +117,21 @@ main() {
     install_term_tools
     install_graphics_tools
 
-    #install_wireshark
+    ##install_wireshark
 
     install_brave_browser
     install_vbox
     install_spotify
+    install_sublime
+
     download_desktop_debs
     download_r2_cutter
 
-    #install_ctf_tools
+    ##install_ctf_tools
 
     set_vimrc
 
-    #get_cmdfu
+    ##get_cmdfu
 }
 
 main
