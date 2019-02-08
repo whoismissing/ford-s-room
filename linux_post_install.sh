@@ -52,7 +52,7 @@ install_vbox() {
     echo "deb https://download.virtualbox.org/virtualbox/debian bionic contrib" >> /etc/apt/sources.list
     wget -q https://www.virtualbox.org/download/oracle_vbox_2016.asc -O- | sudo apt-key add -
     sudo apt-get update
-    sudo apt-get install virtualbox-6.0 # virtualbox-6.0
+    sudo apt-get install virtualbox-6.0 # virtualbox-5.2
 }
 
 install_docker() {
@@ -93,10 +93,25 @@ download_r2_cutter() {
     chmod +x Cutter-v1.7.4-x64.Linux.AppImage
 }
 
+install_32_bit_support() {
+    sudo dpkg --add-architecture i386
+    sudo apt-get update
+    # install gcc 32-bit
+    sudo apt-get install libc6:i386 libncurses5:i386 libstdc++6:i386
+    sudo apt-get install multiarch-support
+}
+
+install_peda() {
+    sudo apt-get install git
+    git clone https://github.com/longld/peda.git ~/peda
+    echo "source ~/peda/peda.py" >> ~/.gdbinit
+}
+
 install_ctf_tools() {
     echo "Installing ctf tools"
-    # install gcc 32-bit
+    install_32_bit_support
     # install peda | gef | pwndbg
+    install_peda
 }
 
 set_vimrc() {
@@ -119,26 +134,26 @@ get_cmdfu() {
 # reminder to get darkreader and lastpass browser extensions
 
 main() {
-    update_and_upgrade
-    install_exfat
-    install_i3
-    install_term_tools
-    install_graphics_tools
+    #update_and_upgrade
+    #install_exfat
+    #install_i3
+    #install_term_tools
+    #install_graphics_tools
 
     ##install_wireshark
 
-    install_brave_browser
-    install_vbox
-    install_docker
-    install_spotify
-    install_sublime
+    #install_brave_browser
+    #install_vbox
+    #install_docker
+    #install_spotify
+    #install_sublime
 
-    download_desktop_debs
-    download_r2_cutter
+    #download_desktop_debs
+    #download_r2_cutter
 
-    ##install_ctf_tools
+    install_ctf_tools
 
-    set_vimrc
+    #set_vimrc
 
     ##get_cmdfu
 }
