@@ -129,6 +129,7 @@ set_vimrc() {
 
 get_cmdfu() {
     echo "Adding cmdfu to bashrc"
+    echo 'cmdfu(){ curl "https://www.commandlinefu.com/commands/matching/$@/$(echo -n $@ | openssl base64)/plaintext"; }' >> .bashrc
 }
 
 # reminder to get darkreader and lastpass browser extensions
