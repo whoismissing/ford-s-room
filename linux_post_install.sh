@@ -73,9 +73,7 @@ install_sublime() {
     sudo apt-get install apt-transport-https
     echo "deb https://download.sublimetext.com/ apt/stable/" | sudo tee /etc/apt/sources.list.d/sublime-text.list
     sudo apt-get update && sudo apt-get install sublime-text
-
 }
-
 
 download_desktop_debs() {
     # vscode deb
@@ -93,6 +91,15 @@ download_r2_cutter() {
     chmod +x Cutter-v1.7.4-x64.Linux.AppImage
 }
 
+download_ghidra() {
+    wget https://ghidra-sre.org/ghidra_9.0_PUBLIC_20190228.zip
+    unzip ghidra*.zip -d /opt/
+    sudo apt install openjdk-11-jre-headless
+    # Get JDK 11.0.2 deb
+    # https://www.oracle.com/technetwork/java/javase/downloads/jdk11-downloads-5066655.html
+    # http://download.oracle.com/otn-pub/java/jdk/11.0.2+9/f51449fcd52f4d52b93a989c5c56ed3c/jdk-11.0.2_linux-x64_bin.deb
+}
+
 install_32_bit_support() {
     sudo dpkg --add-architecture i386
     sudo apt-get update
@@ -107,11 +114,17 @@ install_peda() {
     echo "source ~/peda/peda.py" >> ~/.gdbinit
 }
 
+install_gef() {
+    wget -O ~/.gdbinit-gef.py -q https://github.com/hugsy/gef/raw/master/gef.py
+    echo source ~/.gdbinit-gef.py >> ~/.gdbinit
+}
+
 install_ctf_tools() {
     echo "Installing ctf tools"
     install_32_bit_support
     # install peda | gef | pwndbg
-    install_peda
+    # install_peda
+    install_gef
 }
 
 set_vimrc() {
