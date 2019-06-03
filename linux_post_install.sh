@@ -98,6 +98,8 @@ download_ghidra() {
     # Get JDK 11.0.2 deb
     # https://www.oracle.com/technetwork/java/javase/downloads/jdk11-downloads-5066655.html
     # http://download.oracle.com/otn-pub/java/jdk/11.0.2+9/f51449fcd52f4d52b93a989c5c56ed3c/jdk-11.0.2_linux-x64_bin.deb
+    # Get JDK 12 zips
+    # https://www.oracle.com/technetwork/java/javase/downloads/jdk12-downloads-5295953.html
 }
 
 install_32_bit_support() {
