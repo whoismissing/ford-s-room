@@ -1,0 +1,7 @@
+* Autohotkey - https://autohotkey.com/download/ahk-install.exe
+* WSL - https://docs.microsoft.com/en-us/windows/wsl/install-win10 - Run in powershell `Enable-WindowsOptionalFeature -Online -FeatureName Microsoft-Windows-Subsystem-Linux` 
+* Ubuntu 18.04 WSL image https://www.microsoft.com/store/apps/9N9TNGVNDL3Q
+* Virtualbox - https://download.virtualbox.org/virtualbox/6.1.6/VirtualBox-6.1.6-137129-Win.exe
+* Conemu terminal - https://conemu.github.io/en/Downloads.html
+* Wireshark - https://www.wireshark.org/download.html
+* HxD hexeditor - https://mh-nexus.de/en/downloads.php?product=HxD20
