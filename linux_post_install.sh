@@ -22,7 +22,7 @@ install_i3() {
 }
 
 install_term_tools() {
-    apt install tmux screen git openvpn tlp vim curl -y
+    apt install tmux screen git openvpn tlp vim curl guake -y
 }
 
 install_graphics_tools() {
@@ -128,6 +128,44 @@ install_ctf_tools() {
     # install peda | gef | pwndbg
     # install_peda
     install_gef
+}
+
+install_typora() {
+    wget -qO - https://typora.io/linux/public-key.asc | sudo apt-key add -
+
+    # add Typora's repository
+    sudo add-apt-repository 'deb https://typora.io/linux ./'
+    sudo apt-get update -y
+
+    # install typora
+    sudo apt-get install typora -y
+}
+
+install_source_code_tools() {
+    sudo apt-get install ctags zeal -y
+
+    # Get sourcetrail appimage
+    wget https://github.com/CoatiSoftware/Sourcetrail/releases/download/2020.1.117/Sourcetrail_2020_1_117_Linux_64bit.AppImage
+}
+
+install_python3_pip() {
+    sudo apt-get install python3 python3-dev python3-pip -y
+    pip install pyvenv --user
+}
+
+install_pwntools() {
+    apt-get update
+    apt-get install python3 python3-pip python3-dev git libssl-dev libffi-dev build-essential
+    python3 -m pip install --upgrade pip
+    python3 -m pip install --upgrade git+https://github.com/Gallopsled/pwntools.git@dev
+}
+
+install_golang() {
+    wget https://dl.google.com/go/go1.14.2.linux-amd64.tar.gz
+    tar -C /usr/local -xzf go1.14.2.linux-amd64.tar.gz
+
+    # Add path to bashrc
+    # export PATH=$PATH:/usr/local/go/bin
 }
 
 set_vimrc() {
