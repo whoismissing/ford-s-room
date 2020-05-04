@@ -1,6 +1,8 @@
 # labo
 Install scripts for various lab environments
 
+<img src="./labo.png" style="max-width=50%; max-height=50%;" />
+
 ---
 
 ### Categories
