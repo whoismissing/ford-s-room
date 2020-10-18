@@ -26,7 +26,7 @@ install_term_tools() {
 }
 
 install_graphics_tools() {
-    apt install inkscape -y
+    apt install inkscape kazam -y
 }
 
 install_wireshark() {
@@ -166,6 +166,10 @@ install_golang() {
 
     # Add path to bashrc
     # export PATH=$PATH:/usr/local/go/bin
+}
+
+set_tmux_conf() {
+    echo "setw -g mode-keys vi" > ~/.tmux.conf
 }
 
 set_vimrc() {
